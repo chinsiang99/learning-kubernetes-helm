@@ -81,3 +81,22 @@ Service is an abstraction that defines a logical set of Pods and a policy by whi
 - please **note** that *K8s* **doesn't manage data persistent**, so we should manage it ourselves, store it somewhere, or even backing it up, making sure it is stored on **proper hardware**
 
 <img src="./image/volume.png" alt="Example Image" height="250" width="400" />
+
+## Deployment and StatefulSet
+
+There is a case that a pod dies, then we couldn't access to our service, therefore normally we will replicate everything instead of 1
+
+- Note that the **replica** is **connected** to the **same service**
+- Here, service works as **permanent ip address** and also **load balancer**
+- this is actually a blue-print of deployment
+
+<img src="./image/replica.png" alt="Example Image" height="250" width="500" />
+
+- we can **keep a note** here that **DB can't be replicated** via **deployment** as it is stateful, *Deployment* is only for **stateless application**
+
+### StatefulSet
+StatefulSet comes in handy when dealing with stateful application such as DB
+
+- note that deploying StatefulSetis not easy in k8s, that's why it is a common practice to host database application outside the cluster
+
+<img src="./image/replica.png" alt="Example Image" height="250" width="500" />
