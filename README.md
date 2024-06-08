@@ -42,3 +42,15 @@ A **pod** is the smallest and simplest unit in the Kubernetes object model that 
 - each pod is ephenemeral, therefore the ip address might be assigned a new one if it dies
 
 <img src="./image//sample-node-pod.png" alt="Example Image" height="100" width="200" />
+
+## Services and Ingress
+
+### Service
+
+Service is an abstraction that defines a logical set of Pods and a policy by which to access them. Services **enable communication** between **different components** of an application or between **different applications** within the cluster
+
+- It provides permanent IP address that can be attached to each pod
+- lifecycle of Pod and Service NOT connected
+    - meaning that if the pod dies, the service and its ip address will stay
+- There is external Service as well
+    - There is another component called Ingress, whcih can help to help forwarding the request to your service
