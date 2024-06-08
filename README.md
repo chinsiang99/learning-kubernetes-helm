@@ -68,4 +68,4 @@ Service is an abstraction that defines a logical set of Pods and a policy by whi
 - it is used to store secret data
 - it is base64 encoded
 
-<img src="./image//configMap-secret.png" alt="Example Image" height="250" width="200" />
+<img src="./image//configMap-secret.png" alt="Example Image" height="250" width="300" />
