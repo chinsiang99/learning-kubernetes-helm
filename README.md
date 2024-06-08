@@ -57,3 +57,15 @@ Service is an abstraction that defines a logical set of Pods and a policy by whi
 
 
 <img src="./image/service-ingress.png" alt="Example Image" height="250" width="400" />
+
+## ConfigMap and Secrets
+
+### ConfigMap
+- external configuration of your application, such as database url
+
+### Secrets
+- however, we don't store username and password inside configMaps, instead we store it in secrets
+- it is used to store secret data
+- it is base64 encoded
+
+<img src="./image//configMap-secret.png" alt="Example Image" height="250" width="200" />
