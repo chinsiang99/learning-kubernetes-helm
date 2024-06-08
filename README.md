@@ -41,7 +41,7 @@ A **pod** is the smallest and simplest unit in the Kubernetes object model that 
 - each pod gets its own ip address
 - each pod is ephenemeral, therefore the ip address might be assigned a new one if it dies
 
-<img src="./image//sample-node-pod.png" alt="Example Image" height="100" width="200" />
+<img src="./image//sample-node-pod.png" alt="Example Image" height="250" width="250" />
 
 ## Services and Ingress
 
@@ -56,4 +56,4 @@ Service is an abstraction that defines a logical set of Pods and a policy by whi
     - There is another component called Ingress, whcih can help to help forwarding the request to your service
 
 
-<img src="./image/service-ingress.png" alt="Example Image" height="100" width="200" />
+<img src="./image/service-ingress.png" alt="Example Image" height="250" width="250" />
