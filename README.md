@@ -69,3 +69,15 @@ Service is an abstraction that defines a logical set of Pods and a policy by whi
 - it is base64 encoded
 
 <img src="./image//configMap-secret.png" alt="Example Image" height="250" width="300" />
+
+## Volumes
+
+**Volumes** are used to **manage** and **persist** *data* in a containerized environment. They provide a way to store data that is **independent** of the container lifecycle, ensuring **data persistence** beyond the lifespan of individual containers or Pods
+
+### Volume as data storage
+- attaches a physical hardrive/storage to your pod
+    - it can be a storage on local machien
+    - or even remote, outside of the k8s cluster
+- please note that K8s doesn't manage data persistent, so we should manage it ourselves, store it somewhere, or even backing it up, making sure it is stored on proper hardware
+
+<img src="./image/volume.png" alt="Example Image" height="250" width="300" />
