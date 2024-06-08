@@ -76,8 +76,8 @@ Service is an abstraction that defines a logical set of Pods and a policy by whi
 
 ### Volume as data storage
 - attaches a physical hardrive/storage to your pod
-    - it can be a storage on local machien
+    - it can be a storage on local machine
     - or even remote, outside of the k8s cluster
-- please note that K8s doesn't manage data persistent, so we should manage it ourselves, store it somewhere, or even backing it up, making sure it is stored on proper hardware
+- please **note** that *K8s* **doesn't manage data persistent**, so we should manage it ourselves, store it somewhere, or even backing it up, making sure it is stored on **proper hardware**
 
-<img src="./image/volume.png" alt="Example Image" height="250" width="300" />
+<img src="./image/volume.png" alt="Example Image" height="250" width="400" />
