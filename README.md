@@ -100,3 +100,17 @@ StatefulSet comes in handy when dealing with stateful application such as DB
 - note that deploying StatefulSetis not easy in k8s, that's why it is a common practice to host database application outside the cluster
 
 <img src="./image/replica.png" alt="Example Image" height="250" width="500" />
+
+## Main Kubernetes Components Summarized
+- pod
+    - abstraction of containers
+- service
+    - communication
+- ingress
+    - route traffic into cluster
+- configMap & secrets
+    - external configuration
+- volumes
+    - data persistent
+- deployment & statefulset
+    - pod blue-print with replicating mechanism
