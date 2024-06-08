@@ -56,4 +56,4 @@ Service is an abstraction that defines a logical set of Pods and a policy by whi
     - There is another component called Ingress, whcih can help to help forwarding the request to your service
 
 
-<img src="./image/service-ingress.png" alt="Example Image" height="250" width="300" />
+<img src="./image/service-ingress.png" alt="Example Image" height="250" width="400" />
