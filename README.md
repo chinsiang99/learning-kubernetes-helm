@@ -114,3 +114,29 @@ StatefulSet comes in handy when dealing with stateful application such as DB
     - data persistent
 - deployment & statefulset
     - pod blue-print with replicating mechanism
+
+# Minikube & Kubectl
+
+## Minikube
+- it is a test/local cluster setup
+- unlike production setup, we normally have two master node, and multiple worker nodes
+- in local setup (minikube), we actually had the master and node processes run on **ONE MACHINE**
+- we can say that minikube is a 1 node k8s cluster
+
+![minikube](minikube.png)
+
+## Kubectl
+
+kubectl is the command-line tool used to **interact** with a **Kubernetes cluster**. It allows **administrators** and **developers** to **deploy** applications, **inspect** and **manage cluster resources**, and **view logs** of running applications
+
+## Installation - minikube
+
+we can install it via kubernetes.io
+
+- to create a cluster, we can use:
+
+<!-- > minikube start -->
+> minikube start --driver=docker
+> minikube update-check
+> minikube stop
+> minikube delete
