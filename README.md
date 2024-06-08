@@ -40,3 +40,5 @@ A **pod** is the smallest and simplest unit in the Kubernetes object model that 
 - usually 1 application per Pod
 - each pod gets its own ip address
 - each pod is ephenemeral, therefore the ip address might be assigned a new one if it dies
+
+![sample-node-pod](./image/sample-node-pod.png)
