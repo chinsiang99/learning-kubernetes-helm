@@ -1,0 +1,12 @@
+apiVersion: v1  # The API version used to create this object.
+kind: Service   # The type of object being created. In this case, a Service.
+metadata:       # Metadata about the Service, such as its name.
+  name: nginx-service  # The name of the Service. It must be unique within the namespace.
+
+spec:            # The specification of the desired behavior of the Service.
+  selector:      # Selector defines how the Service finds which Pods to target.
+    app: nginx   # This selector matches Pods with the label 'app: nginx'.
+  ports:         # The list of ports that the Service should expose.
+  - protocol: TCP    # The protocol used by the Service. TCP is the default protocol.
+    port: 80         # The port that will be exposed by the Service.
+    targetPort: 8080 # The port on the Pod that the traffic will be directed to.

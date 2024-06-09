@@ -1,0 +1,26 @@
+apiVersion: apps/v1  # The version of the Kubernetes API to use for this object.
+kind: Deployment     # The type of object we are creating. In this case, a Deployment.
+metadata:            # Metadata about the Deployment, such as its name and labels.
+  name: nginx-deployment  # The name of the Deployment. It must be unique within the namespace.
+  labels:             # Labels are key-value pairs used to organize and select objects.
+    app: nginx        # Label assigned to this Deployment, useful for identifying and selecting this resource.
+
+spec:                # The specification of the desired behavior of the Deployment.
+  replicas: 2        # The number of Pod replicas to maintain. Kubernetes will ensure there are always 2 Pods running.
+  selector:          # Defines how to identify the Pods managed by this Deployment.
+    matchLabels:     # Selector based on labels. Pods with these labels will be selected.
+      app: nginx     # Label that should match the Pods to be managed by this Deployment.
+  template:          # Template used to create the Pods. It includes metadata and specification for the Pods.
+    metadata:        # Metadata for the Pods created by this Deployment.
+      labels:        # Labels to be applied to the Pods created by this Deployment.
+        app: nginx   # Label assigned to the Pods, used for identification and selection.
+    spec:            # Specification for the Pod's desired state, including containers and their properties.
+      containers:    # List of containers that will run in each Pod.
+      - name: nginx  # Name of the container. It must be unique within the Pod.
+        image: nginx:1.16  # Docker image to use for this container. Replace <Image> with the actual image name.
+        resources:      # Resource limits and requests for the container.
+          limits:       # Limits are the maximum amount of resources a container can use.
+            memory: "128Mi"  # Maximum amount of memory the container can use. Here, it's 128 Megabytes.
+            cpu: "500m"      # Maximum amount of CPU the container can use. Here, it's 500 millicores (0.5 CPU).
+        ports:          # List of ports to expose from the container.
+        - containerPort: 8080  # Port to expose on the container. Replace <Port> with the actual port number.
