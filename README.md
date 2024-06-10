@@ -199,3 +199,81 @@ we need ingress controller to evaluate all the rules that we defined
 
 ### Release management
 <img src="./image/release-management.png" alt="template engine" height="250" width="500" />
+
+# Kubernetes Volumes
+- In this section, we will talk about how to **persist data** in Kubernetes using volumes
+- We need volumes because k8s did not persist data out of the box, we actually need a storage that **doesn't depend on** the **pod lifecycle**
+<img src="./image/k8s-volume.png" alt="template engine" height="250" width="500" />
+
+## Storage Requirements
+1. Storage that **doesn't depend on** the **pod lifecycle**
+2. Storage must be **available on all nodes**
+3. Storage needs to **survive** even if **cluster crashes**
+
+## Another use case for persisten storage
+- when we need to have directories to store configuratio files, or read/write files
+- in this case, we need persistent volume
+
+## Persistent Volume
+- a cluster resource
+- created via YAML file
+    - kind: PersistentVolume
+    - spec: e.g. how much storage?
+- needs actual storage
+- but where does this storage comes from? and who make it available to the cluster?
+- we need to know **what type of storage** do you need?
+- and we need to **create and manage** them by ourselves
+
+<img src="./image/persistent-volume.png" alt="template engine" height="250" width="500" />
+
+## Persistent Volume YAML Example
+<img src="./image/persistent-volume-yaml.png" alt="template engine" height="250" width="500" />
+
+## persistent Volumes are NOT namespaced
+- PV is **outside** of the namespaces
+- it is **accessible** to the **whole cluster**
+
+<img src="./image/persistent-volume-not-namespaced.png" alt="template engine" height="250" width="500" />
+
+## Local vs Remore Volume Types
+- Each volume type has it's own use case!
+- Local volume typesviolate 2. and 3. requirement for data persistence:
+    1. being tied to 1 specific node
+    2. surviving cluster crashes
+- Therefore, we could say for db persistence, we always use remote storage instead!
+
+## Levels of Volume abastractions
+- claim must be in the same namespace
+
+<img src="./image/volume-abstraction.png" alt="template engine" height="250" width="500" />
+
+<img src="./image/mounting.png" alt="template engine" height="250" width="500" />
+
+## Summary
+- Volume is directory with some data
+- These volumes are accesible in containers in a pod
+- How made available, backed by which storage medium
+    - defined by specific volume types
+
+## Storage class
+- Storage class provisions Persistent Volumes **dynamically**... when PersistentVolumeClaim claims it
+- Storage is defined in the StorageClass component
+    - via **"provisioner"** attribute
+    - each storage backend has own provisioner
+    - **internal** provisioner - "kubernetes.io"
+    - **external** provisioner
+    - we can configure **parameters** for storage we want to request for PV
+- work as another abstraction level
+    - abstracts underlying storage provider
+    - parameters for that storage
+
+<img src="./image/storage-class.png" alt="template engine" height="250" width="500" />
+
+### Storage Class usage
+- Requested by PersistentVolumeClaim
+
+<img src="./image/config-storage.png" alt="template engine" height="250" width="500" />
+
+- steps of strage class and pvc
+
+<img src="./image/steps-storage.png" alt="template engine" height="250" width="500" />
