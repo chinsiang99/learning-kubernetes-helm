@@ -154,3 +154,48 @@ we need ingress controller to evaluate all the rules that we defined
 - there are many different ways to work with ingress controller, can watch youtube for explanation again: https://www.youtube.com/watch?v=X48VuDVv0do&t=371s
 - to enable ingress in minukube, we can use:
 > minikube addons enable ingress
+
+# Helm Package Manager
+
+## What is Helm
+- package manager for kubernetes
+    - to package YAML files and distribute the in public and private repositories
+
+## What is Helm Charts
+- Bundle of YAML files
+- you can create your own Helm Charts with Helm
+- push them to Helm Repository
+- Download and use existing ones
+- there are two types of registries
+    1. public registries
+    2. private registries
+        - share within organizations
+- it works as templating engine
+    1. define a common blueprint
+    2. dynamic values are replaced by placeholders
+- it is practical for CI/CD
+    - in your build, you can replace the values on the fly
+
+<img src="./image/template-engine.png" alt="template engine" height="250" width="500" />
+
+<img src="./image/template-yaml.png" alt="template engine" height="250" width="500" />
+
+## Helm Chart Structure
+- Directory structures:
+    1. Top level *mychart* folder => name of chart
+    2. **Chart.yaml** => meta info about chart
+    3. **values.yaml** => values for the template files
+    4. *charts* folder => chart dependencies
+    5. *templates* folder => the actual template files
+
+<img src="./image/directory-structure.png" alt="template engine" height="250" width="500" />
+
+- we can make use of command
+> helm install <chartname>
+
+### Values injection into template files
+- it will be merged
+<img src="./image/value-injection.png" alt="template engine" height="250" width="500" />
+
+### Release management
+<img src="./image/release-management.png" alt="template engine" height="250" width="500" />
