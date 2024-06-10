@@ -140,3 +140,17 @@ we can install it via kubernetes.io
 > minikube update-check
 > minikube stop
 > minikube delete
+
+# External Service vs Ingress
+
+- note that ip adresses should not be opened, therefore, we need ingress
+
+<img src="./image/ingress.png" alt="Example Image" height="250" width="500" />
+
+we need ingress controller to evaluate all the rules that we defined
+
+![ingress-controller](ingress-controller.png)
+
+- there are many different ways to work with ingress controller, can watch youtube for explanation again: https://www.youtube.com/watch?v=X48VuDVv0do&t=371s
+- to enable ingress in minukube, we can use:
+> minikube addons enable ingress
