@@ -277,3 +277,52 @@ we need ingress controller to evaluate all the rules that we defined
 - steps of strage class and pvc
 
 <img src="./image/steps-storage.png" alt="template engine" height="250" width="500" />
+
+# StatefulSet
+- it will lose ip address if the pod restarts
+- but the name and endpoints stay the same
+
+## What is StatefulSet
+- it is designed for **stateful applications**, such as databases, elasticsearch, mysql, etc (applications that **stores data**)
+
+## Deployment of stateful and stateless applications
+1. stateless applications
+    - deployed using Deployment
+    - can replicate application
+2. stateful applications
+    - deployed using StatefulSet
+
+## Deployment vs StatefulSet
+1. Deployment
+    - it is easier to scale with
+    - it can make use of replicas
+2. StatefulSet
+    - it is more difficult to scale with
+    - can't be created/deleted at same time
+    - can't be randomly addressed
+    - replica Pods are not identical
+        - **Pod Identity**
+        - there is actually sticky identity for each pod
+        - created from **same specification**, but **not interchangeable**!
+        - persistent identifier across any re-scheduling
+
+## Scaling database applications
+- normally we will have only one database which has the write access, as if we have multiple database that can have write access, it will result in data inconsistency
+
+<img src="./image/scaling-database.png" alt="template engine" height="250" width="500" />
+
+- note that each replicas use different storage, can check the screenshot below
+
+<img src="./image/scaling-database-2.png" alt="template engine" height="250" width="500" />
+
+- each worker must know about each change to be up-to-date!
+- they need to synchronize it to keep up-to-date data through continuous synchronization
+
+## Replicating StatefulSet
+- it is very complex
+- although kubernetes help you on some configuration, but you actually still need to do alot on top of it, such as:
+    - configuring the cloning and data synchronization
+    - make remote storage available
+    - managing and back-up
+- **stateful** applications not perfect for containerized environments
+- **stateless** application is super easy and perfect for containerized environments
